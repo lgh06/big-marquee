@@ -11,8 +11,8 @@
 
   var wrapperInnerHtml = html`
     <div class="inner">
-      asdsda <br />
-      asdsadas
+      text 1 <br />
+      text 2
     </div>
   `;
 
@@ -79,9 +79,9 @@
 
     attributeChangedCallback(name, oldValue, newValue) {
       if (this.moving) {
-        this.shadowRoot.querySelector('.inner').classList.add('anime')
+        this.shadowRoot.querySelector(".inner").classList.add("anime");
       } else {
-        this.shadowRoot.querySelector('.inner').classList.remove('anime')
+        this.shadowRoot.querySelector(".inner").classList.remove("anime");
       }
     }
   }

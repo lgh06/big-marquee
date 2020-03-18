@@ -17,8 +17,13 @@
   </head>
   <body>
     <shine-marquee></shine-marquee>
+    <br /><br />
     <button id="start">Start Moving</button>
     <button id="stop">Stop Moving</button>
+    <br />
+    <br />
+    <textarea name="text" id="text" cols="30" rows="10"></textarea> <br />
+    <button id="setTextBtn">set text</button>
     <script>
       (function() {
         var q = document.querySelector.bind(document);
@@ -29,6 +34,15 @@
           q("#stop").addEventListener("click", e => {
             q("shine-marquee").removeAttribute("moving");
           });
+          q("#setTextBtn").addEventListener("click", e => {
+            q("shine-marquee").shadowRoot.querySelector(
+              ".inner"
+            ).innerHTML = String(q("#text").value).replace(/\n/g, "<br>");
+          });
+          console.log(
+            q("shine-marquee").shadowRoot,
+            q("shine-marquee").shadowRoot.querySelector(".inner")
+          );
         });
       })();
     </script>
