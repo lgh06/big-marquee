@@ -49,6 +49,7 @@
         }
         .inner.anime {
           transition: transform 5s linear;
+          /* TODO calculate translateY dynamically */
           transform: translateY(-100vh);
         }
         :host {
