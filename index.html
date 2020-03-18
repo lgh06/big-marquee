@@ -17,5 +17,20 @@
   </head>
   <body>
     <shine-marquee></shine-marquee>
+    <button id="start">Start Moving</button>
+    <button id="stop">Stop Moving</button>
+    <script>
+      (function() {
+        var q = document.querySelector.bind(document);
+        document.addEventListener("DOMContentLoaded", () => {
+          q("#start").addEventListener("click", e => {
+            q("shine-marquee").setAttribute("moving", "");
+          });
+          q("#stop").addEventListener("click", e => {
+            q("shine-marquee").removeAttribute("moving");
+          });
+        });
+      })();
+    </script>
   </body>
 </html>

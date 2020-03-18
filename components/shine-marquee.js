@@ -24,6 +24,9 @@
       // return the right context
 
       var shadow = this.attachShadow({ mode: "open" });
+      // this.shadowRoot === shadow
+      console.log(this.shadowRoot === shadow);
+
       var wrapper = document.createElement("div");
       wrapper.setAttribute("class", "wrapper");
       wrapper.innerHTML = wrapperInnerHtml;
@@ -57,6 +60,29 @@
       shadow.appendChild(style);
       shadow.appendChild(wrapper);
       return self;
+    }
+    static get observedAttributes() {
+      return ["moving"];
+    }
+
+    get moving() {
+      return this.hasAttribute("moving");
+    }
+
+    set moving(val) {
+      if (val) {
+        this.setAttribute("moving", "");
+      } else {
+        this.removeAttribute("moving");
+      }
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+      if (this.moving) {
+        this.shadowRoot.querySelector('.inner').classList.add('anime')
+      } else {
+        this.shadowRoot.querySelector('.inner').classList.remove('anime')
+      }
     }
   }
 
